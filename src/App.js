@@ -2,15 +2,17 @@
  * @Author: Ali
  * @Date:   2019-10-15T10:11:50+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-10-16T10:52:33+02:00
+ * @Last modified time: 2019-10-16T18:43:55+02:00
  */
 
 import React, { Component } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Search from "./components/Search";
 import Alert from "./components/layout/Alert";
+import About from "./components/pages/About";
 import "./App.css";
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
     loading: false,
     alert: null
   };
+
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await axios.get(
@@ -41,22 +44,36 @@ class App extends Component {
     });
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
+
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, alert } = this.state;
     return (
-      <div className="App">
-        <Navbar title="Github-Finder" icon="fab fa-github" />
-        <div className="container">
-          <Alert alert={this.state.alert} />
-          <Search
-            searchUsers={this.searchUsers}
-            clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false}
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
+      <Router>
+        <div className="App">
+          <Navbar title="Github-Finder" icon="fab fa-github" />
+          <div className="container">
+            <Alert alert={alert} />
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <>
+                    <Search
+                      searchUsers={this.searchUsers}
+                      clearUsers={this.clearUsers}
+                      showClear={users.length > 0 ? true : false}
+                      setAlert={this.setAlert}
+                    />
+                    <Users loading={loading} users={users} />
+                  </>
+                )}
+              />
+              <Route path="/About" component={About} />
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

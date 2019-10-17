@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-10-15T10:11:50+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-10-17T08:57:02+02:00
+ * @Last modified time: 2019-10-17T11:03:18+02:00
  */
 
 import React, { Component } from "react";
@@ -20,6 +20,7 @@ class App extends Component {
   state = {
     users: [],
     user:{},
+    contributions:null,
     loading: false,
     alert: null
   };
@@ -46,6 +47,7 @@ class App extends Component {
 
     this.setState({user:res.data,loading:false})
   }
+  
   //Clear users from state
   clearUsers = () => this.setState({ users: [], loading: false });
   //Set alert
@@ -85,6 +87,7 @@ class App extends Component {
                 <User
                   {...props}
                   getUser={this.getUser}
+                  getContributions={this.getContributions}
                   user={user}
                   loading={loading} />
               )} />

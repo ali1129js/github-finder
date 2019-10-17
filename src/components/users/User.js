@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-10-17T08:25:25+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-10-17T09:36:34+02:00
+ * @Last modified time: 2019-10-17T17:49:39+02:00
  */
 import React from 'react'
 import Spinner from '../layout/Spinner'
@@ -44,6 +44,9 @@ class User extends React.Component {
           <div className="badge badge-success">Following: {following}</div>
           <div className="badge badge-light">Public Repos: {public_repos}</div>
           <div className="badge badge-dark">Public Gists: {public_gists}</div>
+        </div>
+        <div className="card text-center">
+          
         </div>
       </>
     )

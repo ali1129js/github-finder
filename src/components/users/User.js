@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2019-10-17T08:25:25+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-10-18T13:00:27+02:00
+ * @Last modified time: 2019-10-18T13:14:21+02:00
  */
 import React, { useEffect } from "react";
 import Spinner from "../layout/Spinner";
@@ -13,7 +13,8 @@ const User = ({ user, loading, repos, match, getUser, getRepos }) => {
   useEffect(() => {
     getUser(match.params.login);
     getRepos(match.params.login);
-  }, [getRepos, getUser, match.params.login]);
+    //eslint-disable-next-line
+  }, []);
   const {
     name,
     avatar_url,

@@ -2,10 +2,10 @@
  * @Author: Ali
  * @Date:   2019-10-16T07:46:29+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-10-20T09:48:38+02:00
+ * @Last modified time: 2019-10-20T10:25:04+02:00
  */
 import React, { useState,useContext } from "react";
-import GithubContext from '../../context/github/githubContext'
+import GithubContext from '../context/github/githubContext'
 
 const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
   const githubContext = useContext(GithubContext)

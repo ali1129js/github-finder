@@ -1,21 +1,33 @@
-/**
- * @Author: Ali
- * @Date:   2019-10-15T10:25:36+02:00
- * @Last modified by:   Ali
- * @Last modified time: 2019-10-17T08:37:40+02:00
- */
-import React from "react";
-import { Link } from 'react-router-dom'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Navbar = ({ title, icon }) => (
-  <nav className="navbar bg-primary">
-    <h1>
-      <i className={icon} /> {title}
-    </h1>
-    <ul>
-      <li> <Link to='/'> Home</Link></li>
-      <li> <Link to='/About' >About</Link> </li>
-    </ul>
-  </nav>
-);
+const Navbar = ({ icon, title }) => {
+  return (
+    <nav className='navbar bg-primary'>
+      <h1>
+        <i className={icon} /> {title}
+      </h1>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+Navbar.defaultProps = {
+  title: 'Github Finder',
+  icon: 'fab fa-github'
+};
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired
+};
+
 export default Navbar;

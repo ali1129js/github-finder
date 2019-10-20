@@ -1,5 +1,12 @@
+/**
+ * @Author: Ali
+ * @Date:   2019-10-20T10:37:49+02:00
+ * @Last modified by:   Ali
+ * @Last modified time: 2019-10-20T10:37:49+02:00
+ */
+
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import User from './components/users/User';
 import Alert from './components/layout/Alert';
